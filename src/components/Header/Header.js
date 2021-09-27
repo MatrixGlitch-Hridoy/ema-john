@@ -3,7 +3,7 @@ import logo from '../../images/logo.png'
 import Nav from '../Nav/Nav';
 const Header = () => {
     return (
-        <div>
+        <>
             <div className="container">
                 <div className="row justify-content-sm-center">
                     <div className="col-sm-12 text-center">
@@ -12,7 +12,7 @@ const Header = () => {
                 </div>
             </div>
             <Nav></Nav>   
-        </div>
+        </>
     );
 };
 

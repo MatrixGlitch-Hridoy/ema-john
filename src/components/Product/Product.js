@@ -5,7 +5,7 @@ const Product = (props) => {
 //   console.log(props.product);
   const { name, img, seller, price, stock } = props.product;
   return (
-    <div>
+    <>
       <div className="card mb-3 mt-2" style={{maxWidth:"1040px"}}>
         <div className="row g-0">
           <div className="col-md-4">
@@ -20,12 +20,12 @@ const Product = (props) => {
               <p className="card-text">
                 <small className="text-muted">only {stock} left in stock-order soon</small>
               </p>
-              <button className="btn btn-warning"><FontAwesomeIcon icon={faShoppingCart} /> Add to Cart</button>
+              <button onClick = {()=>props.handleAddToCart(props.product)} className="btn btn-warning"><FontAwesomeIcon icon={faShoppingCart} /> Add to Cart</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
