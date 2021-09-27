@@ -3,33 +3,34 @@ import React from "react";
 const Cart = () => {
   return (
     <div>
-      <h3>Order Summary:</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
+      <h3 className="text-center">Order Summary:</h3>
+      <h4 className="text-center">Item Ordered:</h4>
+      <table className="table mt-5">
         <tbody>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td className="fw-bolder">Items</td>
+            <td className="fw-bolder">:</td>
+            <td className="fw-bolder text-danger">$1299</td>
           </tr>
           <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
+            <td className="fw-bolder">Shipping & Handling</td>
+            <td className="fw-bolder">:</td>
+            <td className="fw-bolder text-danger">$1299</td>
           </tr>
           <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
+            <td className="fw-bolder">Total Before Tax</td>
+            <td className="fw-bolder">:</td>
+            <td className="fw-bolder text-danger">$1299</td>
+          </tr>
+          <tr>
+            <td class="fw-bolder">Estimated Tax</td>
+            <td class="fw-bolder">:</td>
+            <td class="fw-bolder text-danger">$1299</td>
+          </tr>
+          <tr>
+            <td class="fw-bolder fs-5">Total Price</td>
+            <td class="fw-bolder">:</td>
+            <td class="fw-bolder text-danger fs-5">$1299</td>
           </tr>
         </tbody>
       </table>
