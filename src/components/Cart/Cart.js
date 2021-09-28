@@ -2,12 +2,15 @@ import React from "react";
 
 const Cart = (props) => {
     const {cart} = props;
-    // let total = 0;
-    // for(const product of cart){
-    //     total = total + product.price
-    // }
-    const totalReducer = (previous,product) => previous + product.price;
-    const total = cart.reduce(totalReducer,0);
+    let totalQuantity = 0;
+    let total = 0;
+    for(const product of cart){
+        product.quantity = !product.quantity ? 1 : product.quantity;
+        total = total + product.price*product.quantity;
+        totalQuantity = totalQuantity + product.quantity;
+    }
+    // const totalReducer = (previous,product) => previous + product.price;
+    // const total = cart.reduce(totalReducer,0);
     const shipping = total > 0 ? 15 : 0;
     const totalBeforeTax = total + shipping;
     const tax = (total + shipping) * .10;
@@ -15,7 +18,7 @@ const Cart = (props) => {
   return (
     <>
       <h3 className="text-center">Order Summary:</h3>
-      <h4 className="text-center">Item Ordered:{cart.length}</h4>
+      <h4 className="text-center">Item Ordered:{totalQuantity}</h4>
       <table className="table mt-5">
         <tbody>
           <tr>
@@ -34,14 +37,14 @@ const Cart = (props) => {
             <td className="fw-bolder text-danger">${totalBeforeTax}</td>
           </tr>
           <tr>
-            <td class="fw-bolder">Estimated Tax</td>
-            <td class="fw-bolder">:</td>
-            <td class="fw-bolder text-danger">${tax}</td>
+            <td className="fw-bolder">Estimated Tax</td>
+            <td className="fw-bolder">:</td>
+            <td className="fw-bolder text-danger">${tax}</td>
           </tr>
           <tr>
-            <td class="fw-bolder fs-5">Total Price</td>
-            <td class="fw-bolder">:</td>
-            <td class="fw-bolder text-danger fs-5">${grandTotal}</td>
+            <td className="fw-bolder fs-5">Total Price</td>
+            <td className="fw-bolder">:</td>
+            <td className="fw-bolder text-danger fs-5">${grandTotal}</td>
           </tr>
         </tbody>
       </table>

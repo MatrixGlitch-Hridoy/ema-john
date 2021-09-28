@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink,NavbarBrand } from "react-bootstrap";
+import { NavLink, NavbarBrand } from "react-bootstrap";
 
 const Nav = () => {
   return (
@@ -28,16 +28,32 @@ const Nav = () => {
                 </NavLink>
               </li>
               <li class="nav-item">
-                <NavLink class="nav-link" aria-current="page" href="/order-review">
+                <NavLink
+                  class="nav-link"
+                  aria-current="page"
+                  href="/order-review"
+                >
                   Order Review
                 </NavLink>
               </li>
               <li class="nav-item">
-                <NavLink class="nav-link" aria-current="page" href="manage-inventory">
+                <NavLink
+                  class="nav-link"
+                  aria-current="page"
+                  href="manage-inventory"
+                >
                   Manage Inventory
                 </NavLink>
               </li>
             </ul>
+            <form class="d-flex mx-auto w-75">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Search Products"
+                aria-label="Search"
+              />
+            </form>
           </div>
         </div>
       </nav>
