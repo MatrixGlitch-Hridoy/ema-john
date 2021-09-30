@@ -6,10 +6,14 @@ import { addToDb, getStoredCart } from "../utilities/fakeDb";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [cart,setCart] = useState([]);
+  const [searchProducts, setSearchProducts] = useState([]);
   useEffect(() => {
     fetch("./products.JSON")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        setProducts(data);
+        setSearchProducts(data);
+      });
   }, []);
   useEffect(()=>{
     if(products.length){
@@ -31,18 +35,38 @@ const Shop = () => {
     setCart(newCart);
     addToDb(product.key)
   };
+
+  const handleSearch = (e)=>{
+    const searchText = e.target.value;
+    const matchedProduct = products.filter(product=>product.name.toLowerCase().includes(searchText.toLowerCase()));
+    setSearchProducts(matchedProduct);
+  }
   return (
     <>
+    <div className="bg-dark pt-2 pb-4">
+    <form className="d-flex mx-auto w-75">
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Search Products"
+                aria-label="Search"
+                onChange={handleSearch}
+              />
+            </form>
+    </div>
+    
       <div className="container">
+      
         <div className="row">
           <div className="col-md-9 col-sm-12">
-            {products.map((product) => (
+            {searchProducts.length ? searchProducts.map((product) => (
               <Product
                 key={product.key}
                 product={product}
                 handleAddToCart={handleAddToCart}
               ></Product>
-            ))}
+              )) : <h1 className="text-center text-danger">No Result Found</h1>
+            }
           </div>
           <div className="col-md-3 col-sm-12">
             <Cart cart={cart}></Cart>
