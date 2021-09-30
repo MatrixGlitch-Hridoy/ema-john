@@ -34,17 +34,17 @@ const Cart = (props) => {
           <tr>
             <td className="fw-bolder">Total Before Tax</td>
             <td className="fw-bolder">:</td>
-            <td className="fw-bolder text-danger">${totalBeforeTax}</td>
+            <td className="fw-bolder text-danger">${totalBeforeTax.toFixed(2)}</td>
           </tr>
           <tr>
             <td className="fw-bolder">Estimated Tax</td>
             <td className="fw-bolder">:</td>
-            <td className="fw-bolder text-danger">${tax}</td>
+            <td className="fw-bolder text-danger">${tax.toFixed(2)}</td>
           </tr>
           <tr>
             <td className="fw-bolder fs-5">Total Price</td>
             <td className="fw-bolder">:</td>
-            <td className="fw-bolder text-danger fs-5">${grandTotal}</td>
+            <td className="fw-bolder text-danger fs-5">${grandTotal.toFixed(2)}</td>
           </tr>
         </tbody>
       </table>

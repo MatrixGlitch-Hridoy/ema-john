@@ -1,9 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import Rating from "react-rating";
 const Product = (props) => {
 //   console.log(props.product);
-  const { name, img, seller, price, stock } = props.product;
+  const { name, img, seller, price, stock, star } = props.product;
   return (
     <>
       <div className="card mb-3 mt-2" style={{maxWidth:"1040px"}}>
@@ -16,6 +17,12 @@ const Product = (props) => {
               <h5 className="card-title">{name}</h5>
               <p className="card-text">Price: ${price}</p>
               <p className="card-text">Review: </p>
+              <Rating 
+                  initialRating={star}
+                  emptySymbol="far fa-star text-warning"
+                  fullSymbol="fas fa-star text-warning"
+                  readonly
+              />
               <p className="card-text">By: {seller}</p>
               <p className="card-text">
                 <small className="text-muted">only {stock} left in stock-order soon</small>
