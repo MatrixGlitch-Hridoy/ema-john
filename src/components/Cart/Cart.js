@@ -48,6 +48,7 @@ const Cart = (props) => {
           </tr>
         </tbody>
       </table>
+      {props.children}
     </>
   );
 };

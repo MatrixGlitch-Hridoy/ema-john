@@ -11,7 +11,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <Nav></Nav>   
+            <Nav></Nav> 
         </>
     );
 };

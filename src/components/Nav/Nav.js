@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink} from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
@@ -20,27 +21,27 @@ const Nav = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" href="/shop">
+                <Link className="nav-link" aria-current="page" to="/shop">
                   Shop
-                </NavLink>
+                </Link>
               </li>
               <li className="nav-item">
-                <NavLink
+                <Link
                   className="nav-link"
                   aria-current="page"
-                  href="/order-review"
+                  to="/order-review"
                 >
                   Order Review
-                </NavLink>
+                </Link>
               </li>
               <li className="nav-item">
-                <NavLink
+                <Link
                   className="nav-link"
                   aria-current="page"
-                  href="manage-inventory"
+                  to="/manage-inventory"
                 >
                   Manage Inventory
-                </NavLink>
+                </Link>
               </li>
             </ul>
           </div>
