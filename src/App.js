@@ -5,6 +5,8 @@ import OrderReview from "./components/OrderReview/OrderReview";
 import Invantory from "./components/Invantory/Invantory";
 import NotFound from "./components/NotFound/NotFound";
 import PlaceOrder from "./components/placeOrder/PlaceOrder";
+import Login from "./components/Login/Login";
+import Register from "./Register/Register";
 function App() {
   return (
     <div>
@@ -26,6 +28,12 @@ function App() {
           </Route>
           <Route path="/place-order">
             <PlaceOrder></PlaceOrder>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="/register">
+            <Register></Register>
           </Route>
           <Route path="*">
             <NotFound></NotFound>
