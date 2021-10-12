@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useFirebase from "../../hooks/useFirebase";
-
+import useAuth from "../../hooks/useAuth";
 const Nav = () => {
-  const {user, logOut} = useFirebase();
+  const {user, logOut} = useAuth();
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -44,6 +43,8 @@ const Nav = () => {
                   Manage Inventory
                 </Link>
               </li>
+              {user.email && <li className="text-warning mt-2 nav-item">Hello, {user.displayName}
+              </li> }
               {
                 user.email ? <li className="nav-item">
                 <Link onClick={logOut}
@@ -65,8 +66,7 @@ const Nav = () => {
                 </Link>
               </li>
               }
-              <li className="text-warning mt-2 nav-item">{user.displayName}
-              </li> 
+              
             </ul>
           </div>
         </div>

@@ -7,10 +7,11 @@ import NotFound from "./components/NotFound/NotFound";
 import PlaceOrder from "./components/placeOrder/PlaceOrder";
 import Login from "./components/Login/Login";
 import Register from "./Register/Register";
+import AuthProvider from "./context/AuthProvider";
 function App() {
   return (
     <div>
-      
+      <AuthProvider>
       <Router>
         <Header></Header>
         <Switch>
@@ -40,7 +41,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-      
+      </AuthProvider>
     </div>
   );
 }
