@@ -8,6 +8,8 @@ import PlaceOrder from "./components/placeOrder/PlaceOrder";
 import Login from "./components/Login/Login";
 import Register from "./Register/Register";
 import AuthProvider from "./context/AuthProvider";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Shipping from "./components/Shipping/Shipping";
 function App() {
   return (
     <div>
@@ -27,9 +29,12 @@ function App() {
           <Route path="/manage-inventory">
             <Invantory></Invantory>
           </Route>
-          <Route path="/place-order">
+          <PrivateRoute path="/place-order">
             <PlaceOrder></PlaceOrder>
-          </Route>
+          </PrivateRoute>
+          <PrivateRoute path="/checkout">
+            <Shipping></Shipping>
+          </PrivateRoute>
           <Route path="/login">
             <Login></Login>
           </Route>

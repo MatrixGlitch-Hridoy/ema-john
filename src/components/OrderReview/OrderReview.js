@@ -4,23 +4,21 @@ import useCart from "../../hooks/useCart";
 import useProducts from "../../hooks/useProducts";
 import Cart from "../Cart/Cart";
 import ReviewItem from "../ReviewItem/ReviewItem";
-import { clearTheCart, removeFromDb } from "../utilities/fakeDb";
+import { removeFromDb } from "../utilities/fakeDb";
 
 const OrderReview = () => {
   const [products] = useProducts();
   const [cart,setCart] = useCart(products);
-  const history = useHistory()
+  const history = useHistory();
   const handleRemove = (key) => {
         const newCart = cart.filter(product=> product.key !== key);
         setCart(newCart);
         removeFromDb(key);
   }
 
-  const handlePlaceOrder = () =>{
+  const handleProceedToCheckout = () =>{
     if(cart.length){
-      history.push('/place-order');
-      setCart([]);
-      clearTheCart();
+      history.push('/checkout');
     }else{
       history.push('/shop');
     }
@@ -38,7 +36,7 @@ const OrderReview = () => {
           <div className="col-md-3 col-sm-12">
             <Cart cart={cart}>
               <div className="d-grid">
-                <button onClick={handlePlaceOrder} className="btn btn-warning">Place Order</button>
+                <button onClick={handleProceedToCheckout} className="btn btn-warning">Proceed to Checkout</button>
               </div>
             </Cart>
           </div>
